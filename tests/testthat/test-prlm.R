@@ -21,7 +21,7 @@ test_that("prlm matches manual augmented lm", {
 
   # identity rows & y=1
   X_aug <- rbind(X, diag(p))
-  y_aug <- c(y, rep(1, p))
+  y_aug <- c(y, rep(0, p))
 
   # manual fit
   fit2 <- lm.fit(x = X_aug, y = y_aug)
