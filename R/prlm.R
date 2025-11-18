@@ -13,7 +13,7 @@
 #' This is equivalent to adding one pseudo-observation for each coefficient,
 #' using the identity matrix as the design rows and a vector of ones as the
 #' pseudo-response. The effect is a simple regularization that shrinks
-#' coefficients toward 1 (or toward 0 if the function is modified accordingly).
+#' coefficients toward 0.
 #'
 #' All other behavior—including handling of formulas, contrasts, weights,
 #' NA processing, and returned object structure—matches `lm()` exactly.
@@ -43,8 +43,8 @@
 #' @seealso [stats::lm()], [stats::lm.fit()]
 #'
 #' @export
-prlm <- function (formula, data, subset, weights, na.action, method = "qr", 
-    model = TRUE, x = FALSE, y = FALSE, qr = TRUE, singular.ok = TRUE, 
+prlm <- function (formula, data, subset, weights, na.action, method = "qr",
+    model = TRUE, x = FALSE, y = FALSE, qr = TRUE, singular.ok = TRUE,
     contrasts = NULL, offset, ...) 
 {
     ret.x <- x
