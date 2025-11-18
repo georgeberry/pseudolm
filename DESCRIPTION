@@ -1,9 +1,9 @@
 Package: prlm
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Pseudo-observation Regularized LM
+Version: 1.0.1
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("George", "Berry", , "george.e.berry@gmail.com", role = c("aut", "cre"))
+Description: Use lm in R adding while pseudo-observations to regularize every coefficient towards zero. prlm implements lm exactly except it adds an identity matrix to the X variables and a vector of 0's to the y variable.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
