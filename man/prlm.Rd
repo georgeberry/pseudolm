@@ -73,7 +73,7 @@ augmented system:
 This is equivalent to adding one pseudo-observation for each coefficient,
 using the identity matrix as the design rows and a vector of ones as the
 pseudo-response. The effect is a simple regularization that shrinks
-coefficients toward 1 (or toward 0 if the function is modified accordingly).
+coefficients toward 0.
 
 All other behavior—including handling of formulas, contrasts, weights,
 NA processing, and returned object structure—matches \code{lm()} exactly.

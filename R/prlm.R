@@ -41,7 +41,9 @@
 #'   observations.
 #'
 #' @seealso [stats::lm()], [stats::lm.fit()]
-#'
+#' @importFrom stats model.response model.weights model.offset
+#' @importFrom stats is.empty.model model.matrix lm.fit lm.wfit
+#' @importFrom stats .getXlevels
 #' @export
 prlm <- function (formula, data, subset, weights, na.action, method = "qr",
     model = TRUE, x = FALSE, y = FALSE, qr = TRUE, singular.ok = TRUE,
