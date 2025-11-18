@@ -1,5 +1,5 @@
 
-# prlm
+# prlm (Pseudo-observation Regularized LM)
 
 <!-- badges: start -->
 <!-- badges: end -->
