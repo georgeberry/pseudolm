@@ -29,6 +29,6 @@ library(prlm)
 
 fit = lm(y ~ x)
 fitreg = prlm(y ~ x)
-fitreg1 = prlm(y ~ x)
+fitreg1 = prlm1(y ~ x)
 ```
 
