@@ -157,7 +157,7 @@ prlm <- function (formula, data, subset, weights, na.action, method = "qr",
 #' coefficients toward 0.
 #' 
 #' \deqn{
-#'   \tilde{X} = \begin{bmatrix} X \\ I_p \end{bmatrix}, \quad
+#'   \tilde{X} = \begin{bmatrix} X \\ \sigma I_p \end{bmatrix}, \quad
 #'   \tilde{y} = \begin{bmatrix} y \\ \mathbf{0}_p \end{bmatrix}
 #' }
 #'
@@ -246,15 +246,12 @@ prlm1 <- function (formula, data, subset, weights, na.action, method = "qr",
         # get sigma
 
         fit <- lm.fit(x, y)
-        sigma2 <- sum(fit$residuals^2) / fit$df.residual
-        tau2 <- 1
-
-        lambda <- sigma2 / tau2
-
+        sigma <- sqrt(sum(fit$residuals^2) / fit$df.residual)
+        
         p <- ncol(x)
 
         # Identity matrix as pseudo-X
-        X_pseudo <- sqrt(lambda) * diag(p)
+        X_pseudo <- sigma * diag(p)
 
         # Vector of 0s as pseudo-y
         y_pseudo <- rep(0, p)

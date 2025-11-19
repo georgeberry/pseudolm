@@ -73,7 +73,7 @@ pseudo-response. The effect is a simple regularization that shrinks
 coefficients toward 0.
 
 \deqn{
-  \tilde{X} = \begin{bmatrix} X \\ I_p \end{bmatrix}, \quad
+  \tilde{X} = \begin{bmatrix} X \\ \sigma I_p \end{bmatrix}, \quad
   \tilde{y} = \begin{bmatrix} y \\ \mathbf{0}_p \end{bmatrix}
 }
 
