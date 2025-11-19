@@ -12,6 +12,8 @@ The insight here is that you can add a single observation to regularize a coeffi
 
 `prlm` does not try to get the Bayesian model right, or give you any knobs to turn. The goal is to just regularize every coefficient to `beta ~ N(0, sigma)` where `sigma` is the standard error of the regression and is implicit in this formulation.
 
+Also provides `prlm1` which regularizes to approximately `beta ~ N(0, 1)` by adding pseudo observations and scaling the identity matrix by `sigma` from an unpenalized regression.
+
 ## Installation
 
 You can install the `prlm` like so:
@@ -27,5 +29,6 @@ library(prlm)
 
 fit = lm(y ~ x)
 fitreg = prlm(y ~ x)
+fitreg1 = prlm(y ~ x)
 ```
 
