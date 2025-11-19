@@ -149,15 +149,16 @@ prlm <- function (formula, data, subset, weights, na.action, method = "qr",
 #' the regression \eqn{\sigma} and then scaling the pseudo-observation identity
 #' matrix.
 #' 
-#' \deqn{
-#'   \tilde{X} = \begin{bmatrix} X \\ I_p \end{bmatrix}, \quad
-#'   \tilde{y} = \begin{bmatrix} y \\ \mathbf{0}_p \end{bmatrix}
-#' }
 #'
 #' This is equivalent to adding one pseudo-observation for each coefficient,
 #' using the identity matrix as the design rows and a vector of ones as the
 #' pseudo-response. The effect is a simple regularization that shrinks
 #' coefficients toward 0.
+#' 
+#' #' \deqn{
+#'   \tilde{X} = \begin{bmatrix} X \\ I_p \end{bmatrix}, \quad
+#'   \tilde{y} = \begin{bmatrix} y \\ \mathbf{0}_p \end{bmatrix}
+#' }
 #'
 #' All other behavior—including handling of formulas, contrasts, weights,
 #' NA processing, and returned object structure—matches `lm()` exactly.
