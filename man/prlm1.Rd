@@ -2,7 +2,7 @@
 % Please edit documentation in R/prlm.R
 \name{prlm1}
 \alias{prlm1}
-\title{Linear Model With Identity-Matrix Pseudo-Observations}
+\title{LM with Pseudo-Observations to Regularize Betas to N(0,1)}
 \usage{
 prlm1(
   formula,
@@ -59,10 +59,12 @@ An object of class \code{"lm"}, identical in structure to the output of
 observations.
 }
 \description{
-\code{prlm1()} behaves exactly like \code{\link[stats:lm]{stats::lm()}} but augments the regression
-system with \eqn{p} pseudo-observations, where \eqn{p} is the number of
-columns in the model matrix \eqn{X}. Specifically, the model is fit to an
-augmented system:
+\code{prlm1()} behaves like \code{\link[stats:lm]{stats::lm()}} but augments the regression
+system with \eqn{p} pseudo-observations and scales these so that the prior
+on each coefficient is roughly \eqn{beta \sim \mathcal{N}(0, 1)}. It does
+this by fitting \code{\link[stats:lm]{stats::lm()}} on the data, getting the standard error of
+the regression \eqn{\sigma} and then scaling the pseudo-observation identity
+matrix.
 }
 \details{
 \deqn{
