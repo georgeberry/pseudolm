@@ -2,7 +2,7 @@
 % Please edit documentation in R/prlm.R
 \name{prlm}
 \alias{prlm}
-\title{Linear Model With Identity-Matrix Pseudo-Observations}
+\title{LM with Pseudo-Observations to Regularize Betas to N(0,1)}
 \usage{
 prlm(
   formula,
@@ -59,23 +59,23 @@ An object of class \code{"lm"}, identical in structure to the output of
 observations.
 }
 \description{
-\code{prlm()} behaves exactly like \code{\link[stats:lm]{stats::lm()}} but augments the regression
-system with \eqn{p} pseudo-observations to regularize the coefficients to
-roughly \eqn{\beta \sim \mathcal{N}(0, \sigma)} where \eqn{\sigma} is the
-standard error of the regression.
+\code{prlm()} behaves like \code{\link[stats:lm]{stats::lm()}} but augments the regression
+system with \eqn{p} pseudo-observations and scales these so that the prior
+on each coefficient is roughly \eqn{\beta \sim \mathcal{N}(0, 1)}. It does
+this by fitting \code{\link[stats:lm]{stats::lm()}} on the data, getting the standard error of
+the regression \eqn{\sigma} and then scaling the pseudo-observation identity
+matrix.
 }
 \details{
-Specifically, the model is fit to an augmented system
-
-\deqn{
-  \tilde{X} = \begin{bmatrix} X \\ I_p \end{bmatrix}, \quad
-  \tilde{y} = \begin{bmatrix} y \\ \mathbf{0}_p \end{bmatrix}
-}
-
 This is equivalent to adding one pseudo-observation for each coefficient,
 using the identity matrix as the design rows and a vector of ones as the
 pseudo-response. The effect is a simple regularization that shrinks
 coefficients toward 0.
+
+\deqn{
+  \tilde{X} = \begin{bmatrix} X \\ \sigma I_p \end{bmatrix}, \quad
+  \tilde{y} = \begin{bmatrix} y \\ \mathbf{0}_p \end{bmatrix}
+}
 
 All other behavior—including handling of formulas, contrasts, weights,
 NA processing, and returned object structure—matches \code{lm()} exactly.
