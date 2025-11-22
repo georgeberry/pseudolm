@@ -61,7 +61,7 @@ test_that("prlm matches manual augmented lm with sigma-scaled pseudo-obs", {
 })
 
 
-test_that("prlm matches glmnet for ridge when glmnet is available", {
+test_that("prlm matches MASS for ridge when MASS is available", {
 
   skip_if_not_installed("MASS")
 
